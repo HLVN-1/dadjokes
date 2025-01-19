@@ -14,10 +14,17 @@ const { chromium } = require("playwright");
   console.log("Clicking the 'Get a Joke' button...");
   await page.click("#fetch-joke");
 
-  // Wait for the joke to appear
-  await page.waitForSelector("#joke");
-  const joke = await page.textContent("#joke");
+  // Wait for the joke to change
+  await page.waitForFunction(() => {
+    const jokeElement = document.getElementById("joke");
+    return (
+      jokeElement &&
+      jokeElement.textContent !== "Click the button to get a joke!"
+    );
+  });
 
+  // Get the updated joke text
+  const joke = await page.textContent("#joke");
   console.log("Fetched Joke:", joke);
 
   await browser.close();
