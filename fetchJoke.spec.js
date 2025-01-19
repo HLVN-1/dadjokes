@@ -8,7 +8,7 @@ const { chromium } = require("playwright");
   const page = await context.newPage();
 
   // Load the HTML file
-  await page.goto(`file://${__dirname}/index.html`);
+  await page.goto("https://random-joke-fetcher.vercel.app/");
 
   // Interact with the button
   console.log("Clicking the 'Get a Joke' button...");
