@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Dad Joke Fetcher</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Random Dad Joke Fetcher</h1>
+    <p id="joke">Click the button to get a joke!</p>
+    <button id="fetch-joke">Get a Joke</button>
+
+    <script>
+      document
+        .getElementById("fetch-joke")
+        .addEventListener("click", async () => {
+          const jokeElement = document.getElementById("joke");
+          try {
+            const response = await fetch("https://icanhazdadjoke.com/", {
+              headers: { Accept: "application/json" },
+              "User-Agent":
+                "Random Joke Fetcher (https://github.com/hlvn-1/dadjokes)",
+            });
+            const data = await response.json();
+            jokeElement.textContent = data.joke;
+          } catch (error) {
+            jokeElement.textContent =
+              "Failed to fetch a joke. Please try again.";
+            console.error(error);
+          }
+        });
+    </script>
+  </body>
+</html>

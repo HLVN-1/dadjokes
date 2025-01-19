@@ -1,0 +1,23 @@
+{
+  "name": "dadjokes",
+  "version": "1.0.0",
+  "description": "A random joke fetcher using JS and Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HLVN-1/dadjokes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HLVN-1/dadjokes/issues"
+  },
+  "homepage": "https://github.com/HLVN-1/dadjokes#readme",
+  "dependencies": {
+    "playwright": "^1.49.1"
+  }
+}
